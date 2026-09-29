@@ -32,3 +32,5 @@ CREATE TABLE loans_staging (
     mort_acc NVARCHAR(50), num_actv_bc_tl NVARCHAR(50), num_actv_rev_tl NVARCHAR(50),
     bc_util NVARCHAR(50)
 );
+GO      
+ALTER TABLE loans_staging ADD income_bracket VARCHAR(20)
