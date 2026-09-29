@@ -1,7 +1,7 @@
 # Getting Necessary Data From The CSV
 import pandas as pd 
 
-
+#Paste you file fath 
 df = pd.read_csv("D:/accepted_2007_to_2018q4.csv/accepted_2007_to_2018Q4.csv")
 
 
@@ -19,6 +19,7 @@ important_columns = [ "id",
     "emp_length",
     "home_ownership",
     "verification_status",
+    "issue_d",
     "addr_state",
     "dti",
     "fico_range_low",
@@ -45,4 +46,4 @@ important_columns = [ "id",
 
 df = df[important_columns]
 
-df.to_csv('D:/loans', index = False)
+df.to_csv('D:/loans.csv', index = False)
