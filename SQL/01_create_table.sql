@@ -15,6 +15,8 @@ GO
 USE loan_data_analysis;
 GO
 --Creating Table With Required Columns
+IF OBJECT_ID('loans_staging','U') IS NOT NULL
+	DROP TABLE loans_staging;
 CREATE TABLE loans_staging (
     id NVARCHAR(50), loan_status NVARCHAR(100), loan_amnt DECIMAL(16,2),
     funded_amnt NVARCHAR(50), term NVARCHAR(50), int_rate NVARCHAR(50),
