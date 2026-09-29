@@ -1,7 +1,18 @@
---Creating Database to Store the Data
-CREATE DATABASE loan_data_analysis
+USE master;
 GO
-USE loan_data_analysis
+
+-- Drop and recreate the 'DataWarehouse' database
+IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'loan_data_analysis')
+BEGIN
+    ALTER DATABASE loan_data_analysis SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE loan_data_analysis;
+END;
+GO
+
+--Creating Database to Store the Data
+CREATE DATABASE loan_data_analysis;
+GO
+USE loan_data_analysis;
 GO
 --Creating Table With Required Columns
 CREATE TABLE loans_staging (
