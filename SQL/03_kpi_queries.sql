@@ -72,6 +72,7 @@ ORDER BY default_probability DESC
 
 
 --Which Application Should Credit Team Manually Review
+CREATE VIEW app_review AS
 WITH flags AS (
     SELECT id, loan_amnt, grade, purpose,
         CASE WHEN Debt_to_income_ratio > 30 THEN 1 ELSE 0 END +
@@ -83,10 +84,9 @@ WITH flags AS (
         AS flags_triggered
     FROM loans_staging
 )
-SELECT id, loan_amnt, grade, purpose, flags_triggered,
+SELECT id,flags_triggered,
        CASE WHEN flags_triggered >= 1 THEN 'Manual Review' ELSE 'Standard' END AS review_decision
 FROM flags
-ORDER BY flags_triggered DESC;
 
 
 
