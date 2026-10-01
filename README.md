@@ -132,7 +132,7 @@ Clicking any flagged loan ID opens a detail card showing exactly why it was flag
 loan-default-risk-analysis/
 ├── README.md
 ├── PYTHON/
-│   └── 01_select_columns.py
+│   └── main.py
 ├── SQL/
 │   ├── 01_create_table.sql
 │   ├── 02_clean_and_transform.sql
@@ -145,10 +145,6 @@ loan-default-risk-analysis/
         ├── 03_manual_review_queue.png
         └── 04_risk_score_detail_drillthrough.png
 ```
-
-> The `.pbix` file isn't included directly due to GitHub's file-size limits on large datasets. [Add your published Power BI link here] once published, or request the file directly.
-
----
 
 ## How to Reproduce
 
