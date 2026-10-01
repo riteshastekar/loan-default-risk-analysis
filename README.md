@@ -2,7 +2,7 @@
 
 End-to-end data analytics project that cleans and models 2.26M+ loan records in **SQL Server**, then visualizes risk in an interactive **Power BI** dashboard — built to identify which customer segments carry the highest default risk and which applications a credit team should manually review.
 
-![Portfolio Overview](Power Bi/screenshots/01_portfolio_overview.png)
+![Portfolio Overview](PowerBi/screenshots/01_portfolio_overview.png.PNG)
 
 ---
 
