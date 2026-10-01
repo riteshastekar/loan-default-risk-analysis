@@ -111,7 +111,7 @@ Each chart carries a dashed line at the 19.98% portfolio average, with bars abov
 **1,201,868 applications (53.16%)** trip at least one review rule. The flag-count distribution shows most flagged loans trip only 1–2 rules, with a small tail of severe cases (728 loans trip 4 rules, 1 loan trips all 5 risk categories).
 
 ### Risk Score Detail (drill-through)
-![Risk Score Detail](PowerBi/screenshots/04_risk_score_detail_drillthrough.png.PNG)
+![Risk Score Detail](PowerBi/screenshots/04_risk_score_detail_drillthrough.png)
 
 Clicking any flagged loan ID opens a detail card showing exactly why it was flagged — DTI, revolving utilization, FICO, delinquency count, and recent inquiries — so the credit team can see the reasoning behind each review, not just the decision.
 
