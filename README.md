@@ -17,7 +17,7 @@ Lenders can't manually review every application. This project builds a data-driv
 ## Dataset
 
 - **Source:** LendingClub consumer loan data (`accepted_2007_to_2018Q4.csv`, public, anonymized)
-- **Raw size:** 150+ columns; reduced in `python/01_select_columns.py` to the 36 relevant to default-risk analysis
+- **Raw size:** 150+ columns; reduced in `python/main.py` to the 36 relevant to default-risk analysis
 - **Size after cleaning:** 2,260,668 loan records
 - **Fields used:** loan amount, grade, purpose, term, interest rate, borrower income, DTI, FICO score range, revolving utilization, credit inquiries, delinquency history, employment length, state, verification status, and final loan outcome (`loan_status`)
 
@@ -42,7 +42,7 @@ Lenders can't manually review every application. This project builds a data-driv
 accepted_2007_to_2018Q4.csv (raw LendingClub file, 150+ columns)
    │
    ▼
-01_select_columns.py       → pandas: selects the 36 relevant columns → loans.csv
+ main.py       → pandas: selects the 36 relevant columns → loans.csv
    │
    ▼
 01_create_table.sql        → creates loan_data_analysis DB + loans_staging table
@@ -92,12 +92,12 @@ DAX measures (see `dax_measures.txt`) calculate default rate, manual review rate
 **4 pages:** Portfolio Overview → Risk by Segment → Manual Review Queue → Risk Score Detail (drill-through)
 
 ### Portfolio Overview
-![Portfolio Overview](screenshots/project01.png)
+![Portfolio Overview](screenshots/01_portfolio_overview.png)
 
 2,260,668 total loans worth **$34.02B**, with an overall **default probability of 19.98%**. Loan status is split across Fully Paid (47.6%), Current (38.9%), and Charged Off (11.9%), with a visible default-rate spike around 2008–2010 (financial crisis) tapering through later years.
 
 ### Risk by Segment
-![Risk by Segment](screenshots/project02.png)
+![Risk by Segment](screenshots/02_risk_by_segment.png)
 
 Each chart carries a dashed line at the 19.98% portfolio average, with bars above it colored red:
 - **Purpose:** `small_business` loans default most (~30%); `wedding` loans least (~12%)
@@ -106,12 +106,12 @@ Each chart carries a dashed line at the 19.98% portfolio average, with bars abov
 - **Geography:** default rate by state, mapped — concentrated in parts of the South and Midwest
 
 ### Manual Review Queue
-![Manual Review Queue](screenshots/projectp03.png)
+![Manual Review Queue](screenshots/03_manual_review_queue.png)
 
 **1,201,868 applications (53.16%)** trip at least one review rule. The flag-count distribution shows most flagged loans trip only 1–2 rules, with a small tail of severe cases (728 loans trip 4 rules, 1 loan trips all 5 risk categories).
 
 ### Risk Score Detail (drill-through)
-![Risk Score Detail](screenshots/projectp04.png)
+![Risk Score Detail](screenshots/04_risk_score_detail_drillthrough.png)
 
 Clicking any flagged loan ID opens a detail card showing exactly why it was flagged — DTI, revolving utilization, FICO, delinquency count, and recent inquiries — so the credit team can see the reasoning behind each review, not just the decision.
 
@@ -164,4 +164,4 @@ loan-default-risk-analysis/
 
 **Ritesh Astekar**
 Entry-level Data Analyst | SQL, Power BI, Python, Excel
-[LinkedIn] · [GitHub] · riteshastekar40@gmail.com
+[LinkedIn] · [GitHub] · astekar.ritesh1@gmail.com
