@@ -1,0 +1,41 @@
+Total Loans = COUNTROWS(loans_staging)
+
+Known Outcome Loans =
+CALCULATE(
+    [Total Loans],
+    loans_staging[loan_status] IN {
+        "Fully Paid","Charged Off","Default",
+        "Does not meet the credit policy. Status:Fully Paid",
+        "Does not meet the credit policy. Status:Charged Off"
+    }
+)
+
+Defaulted Loans =
+CALCULATE(
+    [Total Loans],
+    loans_staging[loan_status] IN {
+        "Charged Off","Default",
+        "Does not meet the credit policy. Status:Charged Off"
+    }
+)
+
+Default Rate % = DIVIDE([Defaulted Loans], [Known Outcome Loans], 0)
+
+Manual Review Count =
+CALCULATE([Total Loans], loans_staging[review_decision] = "Manual Review")
+
+Manual Review Rate % = DIVIDE([Manual Review Count], [Total Loans], 0)
+
+Total Loan Amount = SUM(loans_staging[loan_amnt])
+
+Avg Default Rate (Portfolio) =
+CALCULATE([Default Rate %], ALL(loans_staging))
+
+Default Rate Lift = DIVIDE([Default Rate %], [Avg Default Rate (Portfolio)], 0)
+
+Bar Color =
+IF(
+    [Default Rate %] > [Avg Default Rate (Portfolio)],
+    "#D64545",   -- red
+    "#5B7DB1"    -- gray-blue
+)
